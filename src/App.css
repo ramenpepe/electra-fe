@@ -1,38 +1,300 @@
 .App {
   text-align: center;
+  font-family: 'Orbitron', sans-serif;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.reactGridItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms ease;
+  transition-property: left, top;
+  background: rgba(0, 0, 0, 0.05);
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("https://s3.ap-southeast-2.wasabisys.com/bgt/map.jpg");
+}
+
+.logo {
+  margin: 0 20px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0%;
+  left: 92%;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  padding: 6px;
+}
+
+.topbar button {
+  width: 80px;
+  background: #f9f9f9;
+}
+
+.topbar {
+  background: #f9f9f9;
+}
+
+button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+
+}
+
+.save {
+  background: #E9e9e9;
+  border: none;
+  position: fixed;
+  top: 5px;
+  right: 2vw;
+}
+
+.reactGridItem {
+  flex-direction: column;
+  align-items: stretch;
+  overflow: visible;
+}
+
+
+
+
+
+.smartmeter-main {
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
+  top: 0;
+  width: 300px;
+  margin: 50% auto;
+  height: 300px;
+  background: url(https://s3.ap-southeast-2.wasabisys.com/bgt/smartmeter.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.smartmeter-main .time {
+  color: #000;
+  position: absolute;
+  width: 100%;
+  margin: 70% auto;
+}
+
+
+.smartmeter-main .demand {
+  color: #FFF;
+  font-size: 150%;
+  position: absolute;
+  width: 100%;
+  margin: 40% -5%;
+}
+
+.smartmeter-main .produce {
+  color: #1cda19;
+  font-size: 70%;
+  position: absolute;
+  width: 100%;
+  margin: 32% 20%;
+}
+
+.flow {
+  position: absolute;
+  width: 50px;
+  height: 15px;
+  margin: 55% 17%;
+  background: red;
+  color: #FFF;
+  font-size: 8px;
+}
+
+.flow.gain {
+  background: #1cda19;
+}
+
+.address-input {
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 8px;
+  height: 200px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+.address-input input {
+  width: 90%;
+  padding: 6px;
+  margin: 6px;
+  border: none;
+  border-radius: 5px;
+}
+
+.react-resizable>div {}
+
+.deleteButton {
+  z-index: 10;
+  position: absolute;
+  left: calc(100% - 25px);
+}
+
+.smartmeter-main .rounded .center {
+  vertical-align: middle;
+  padding-top: 20%;
+}
+
+.topbar {
+  position: fixed;
+  top: -30px;
+  z-index: 100;
+
+  border-bottom: 1px solid #999;
+}
+
+.topbar:hover {
+  animation-name: dropdown;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+
+}
+
+.Trx {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(211, 234, 234, 0.5);
 }
 
-.App-link {
-  color: #61dafb;
+
+.weather.one {
+  background-image: url(https://s3.ap-southeast-2.wasabisys.com/bgt/night.jpg);
 }
 
-@keyframes App-logo-spin {
+.weather.two {
+  background-image: url(https://s3.ap-southeast-2.wasabisys.com/bgt/sunny.jpg);
+}
+
+.weather.three {
+  background-image: url(https://s3.ap-southeast-2.wasabisys.com/bgt/rain.jpg);
+}
+
+.weather.four {
+  background-image: url(https://s3.ap-southeast-2.wasabisys.com/bgt/cloudy.jpg);
+}
+
+.weather {
+  background-size: cover;
+  border-radius: 6px;
+  height: 100%;
+  width: 100%;
+}
+
+
+.Bill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(227, 236, 227, 0.5);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 80%;
+  table-layout: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+thead th {
+  font-weight: bold;
+  background-color: #eee;
+}
+
+thead th:nth-of-type(1) {
+  width: 300px;
+}
+
+.table tbody tr:first-child {
+  animation-name: new-row;
+  animation-duration: 2s;
+}
+
+@keyframes new-row {
   from {
-    transform: rotate(0deg);
+    background-color: yellow;
   }
+
   to {
-    transform: rotate(360deg);
+    background-color: white;
   }
+}
+
+@keyframes dropdown {
+  from {
+    top: -30px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+thead th:nth-of-type(2) {
+  width: 100px;
+}
+
+tbody tr,
+tbody tr td {
+  max-height: 10px;
+}
+
+tbody tr:hover {
+  opacity: 0.5;
+  background: #fff;
+}
+
+tbody td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+tbody {
+  height: auto;
+  overflow: auto;
 }
