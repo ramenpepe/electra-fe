@@ -13,6 +13,7 @@ function SmartMeter() {
     setWallet(wallet);
     console.log(event.target.value, walletl);
   };
+
   const handleWalletChange = (event) => {
     setWallet(event.target.value);
   };
@@ -60,23 +61,25 @@ function SmartMeter() {
   return (
     <div>
       <div className="smartmeter-main">
-
-        <div >
-
+        <div>
           <div className="time">
             {swallet ? (
               <div className="address-input">
                 <label>Wallet Label</label><br />
                 <input placeholder="Wallet Label" onChange={handleWalletChangeL} value={walletl} />
                 <label>Wallet Address</label><br />
-                <input placeholder="Wallet Address" onChange={handleWalletChange} onBlur={handleSWalletChange} value={wallet} /></div>
+                <input placeholder="Wallet Address" onChange={handleWalletChange} onBlur={handleSWalletChange} value={wallet} />
+              </div>
             ) : (
-              <div class="walletid"><div onClick={handleSWalletChange}> <sup>[ {walletl} ]</sup> </div></div>
+              <div class="walletid">
+                <div onClick={handleSWalletChange}>
+                  <sup>[ {walletl} ]</sup>
+                </div>
+              </div>
             )}
             {data.time}
-
-            <br /><sup>{data.date}</sup></div>
-
+            <br /><sup>{data.date}</sup>
+          </div>
         </div>
         <div className="demand">{data.demand}</div>
         <div className="produce">{data.produce}</div>
@@ -84,7 +87,7 @@ function SmartMeter() {
           {gain ? (<span>SELLING</span>) : (<span>BUYING</span>)}
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

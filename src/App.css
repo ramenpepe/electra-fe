@@ -61,6 +61,7 @@ button {
 }
 
 .topbar {
+  width:100%;
   background: #f9f9f9;
 }
 
@@ -72,7 +73,7 @@ button:hover {
 
 .save {
   background: #E9e9e9;
-  border: none;
+  border: 1px solid #666;;
   position: fixed;
   top: 5px;
   right: 2vw;

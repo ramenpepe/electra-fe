@@ -41,19 +41,22 @@ function Bill() {
       const datasrc = await responseP.json();
       console.log(datasrc, datasrc2);
       var datanew = cdata;
-      datanew[cycleC].producerbillinglines = []
-      datanew[cycleC].customerbillinglines = [];
+      datanew[cycleC].producerbillinglines = [0]
+      datanew[cycleC].customerbillinglines = [0];
       if (typeof datasrc.customerbillinglines !== "undefined") {
+        var arr = [];
+        datasrc.customerbillinglines.forEach(element => {
+          var line = JSON.parse(element);
+          arr.push("Contract:"+line.billContractID +" - Address:"+line.customerDeviceID+" - Unit Price:"+line.lineWhPrice+" - Total Charges:"+line.lineWhTotalPrice); 
+      });
+      datanew[cycleC].customerbillinglines = arr; 
+    }
 
-        datanew[cycleC].customerbillinglines = datasrc.customerbillinglines;
-      }
       if (typeof datasrc2.producerbillinglines !== 'undefined') {
-        var test = JSON.parse(datasrc2.producerbillinglines[0]);
-        console.log(datasrc2.producerbillinglines[0]);
         var arr = [];
         datasrc2.producerbillinglines.forEach(element => {
           var line = JSON.parse(element);
-          arr.push(line);
+          arr.push("Contract:"+line.billContractID +" - Address:"+line.customerDeviceID+" - Unit Price:"+line.lineWhPrice+" - Total Charges:"+line.lineWhTotalPrice); 
         });
         datanew[cycleC].producerbillinglines = arr; //datasrc2.producerbillinglines;
       }
@@ -164,11 +167,11 @@ function Bill() {
               <tr>
                 <td colspan="6">
 
-                  <h4>Receivable</h4>
+                {cdata[record.cid].customerbillinglines.length>0? (<h4>Receivable</h4>):('')}
 
                   {cdata[record.cid].customerbillinglines}
 
-                  <h4>Payable</h4>
+                  {cdata[record.cid].producerbillinglines.length>0? (<h4>Payable</h4>):('')}
 
                   {cdata[record.cid].producerbillinglines}
                 </td></tr>
